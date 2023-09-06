@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class Course {
 
     @OneToMany(mappedBy = "course")
     @JsonManagedReference("course")
-    @JsonIgnoreProperties("course")
+//    @JsonIgnoreProperties("course")
 
     private List<Enrollment> enrollmentList;
 }

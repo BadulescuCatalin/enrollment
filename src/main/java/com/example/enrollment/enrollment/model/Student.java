@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ public class Student {
     private String email;
 
     @OneToMany(mappedBy = "student")
-    @JsonIgnoreProperties("student")
+//    @JsonIgnoreProperties("student")
     @JsonManagedReference("student")
     private List<Enrollment> enrollmentList;
 }

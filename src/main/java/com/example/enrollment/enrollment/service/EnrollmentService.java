@@ -10,12 +10,17 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class EnrollmentService {
 
     private final EnrollmentRepository enrollmentRepository;
+
+    public List<Enrollment> allEnrollments() {
+        return  enrollmentRepository.findAll();
+    }
 
     public String enrollStudentOnCourse(Student student, Course course) {
         Enrollment enrollment = Enrollment.builder()

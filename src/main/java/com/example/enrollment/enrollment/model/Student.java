@@ -1,6 +1,7 @@
 package com.example.enrollment.enrollment.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
@@ -23,6 +24,7 @@ public class Student {
     private String email;
 
     @OneToMany(mappedBy = "student")
-    //@JsonManagedReference
+    @JsonIgnoreProperties("student")
+    @JsonManagedReference("student")
     private List<Enrollment> enrollmentList;
 }

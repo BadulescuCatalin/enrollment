@@ -18,12 +18,12 @@ public class EnrollmentService {
     private final EnrollmentRepository enrollmentRepository;
 
     public String enrollStudentOnCourse(Student student, Course course) {
-        Enrollment enrollemnt = Enrollment.builder()
+        Enrollment enrollment = Enrollment.builder()
                 .student(student)
                 .course(course)
                 .enrollmentDate(new Date())
                 .build();
-        Enrollment savedEnrollment = enrollmentRepository.save(enrollemnt);
+        Enrollment savedEnrollment = enrollmentRepository.save(enrollment);
         return "Enrollment added successfully";
     }
 }

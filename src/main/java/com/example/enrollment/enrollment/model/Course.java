@@ -1,8 +1,6 @@
 package com.example.enrollment.enrollment.model;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +21,8 @@ public class Course {
     private String description;
 
     @OneToMany(mappedBy = "course")
-    //@JsonManagedReference
+    @JsonManagedReference("course")
+    @JsonIgnoreProperties("course")
+
     private List<Enrollment> enrollmentList;
 }
